@@ -420,7 +420,7 @@ class EmbeddedSphinxShell(object):
         # as absolute path for Sphinx
         # sphinx expects a posix path, even on Windows
         posix_path = pathlib.Path(savefig_dir,filename).as_posix()
-        outfile = '/' + os.path.relpath(posix_path, source_dir)
+        outfile = '/' + pathlib.Path(os.path.relpath(posix_path, source_dir)).as_posix()
 
         imagerows = ['.. image:: %s' % outfile]
 
